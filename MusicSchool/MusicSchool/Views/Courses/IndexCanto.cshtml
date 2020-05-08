@@ -1,0 +1,76 @@
+﻿@model MusicSchool.Areas.Admin.Models.Courses
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "IndexCanto";
+}
+
+<h1>IndexCanto</h1>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link type="text/css" rel="stylesheet" href="~/css/Teachers.css" />
+</head>
+<body>
+    <div class="container-fluid text-center">
+        <div class="row content">
+            <div class="col-sm-2 sidenav">
+
+            </div>
+            <div class="col-sm-8 text-left">
+                <h1>Cursuri de chitara - Lectii de chitara</h1>
+                <p>
+                    O lectie de canto dureaza 50 de minute.
+
+                    Bucuria de canta cu vocea este suficienta pentru a incepe studiul. Nu aveti nevoie de cunostinte 
+                    muzicale pentru a lua lectii de canto in cadrul Scolii de Muzica PianoForte.
+                    De ce? Pentru ca lectiile de canto din cadrul scolii nostre de muzica se adreseaza atat celor aflati la inceput,
+                    cat si celor avansati, indiferent de varsta, care doresc sa aiba parte de o educatie vocala profesionista. 
+                    Prin urmare, sunt binevenite:
+                    • persoanele care doresc sa puna accentul pe ceea ce inseamna exercitii vocale, experimentand in acelasi 
+                    timp placerea de a canta, odata cu destinderea si starea de mai bine pe care le ofera cantatul cu vocea.
+                    • persoanele care nu s-au gandit sau n-au urmarit niciodata sa se integreze in structurile deja existente 
+                    de tip cor sau cursuri de canto pentru ca li s-a spus ca nu au ureche muzicala sau acuratetea vocala necesara, 
+                    sau pur si simplu li s-a spus ca falseaza, canta fals; noi le propunem un spatiu si o abordare unde acestea 
+                    vor putea progresiv sa isi calibreze trupul si vocea, sa-si educe auzul, astfel incat sa guste la modul cel 
+                    mai direct din placerea de a canta cu vocea.
+                    • persoanele care canta deja si care doresc sa invete o abordare naturala si profesionista a lucrului cu 
+                    vocea in vederea imbunatatirii prestatiilor lor muzicale.
+
+                    In acest sens, ca sunteti copii, adolescenti sau adulti, cursurile de canto oferite de MusicSchool va invata 
+                    tehnica vocala naturala, sustinuta de o tehnica respiratorie corecta, dictie, frazare, intonatie, dezvoltandu-va 
+                    concomitent auzul muzical, agilitatea si prezenta scenica, precum si mobilitatea corporala in general.
+
+                    In consecinta, a urma lectiile de canto in cadrul Scolii PianoForte presupune:
+                    • a redefini contactul cu instrumentul cu care cantam - corpul nostru,
+                    • a descoperi in noi insine un alt tip de forta si un alt tip de energie,
+                    • a cultiva o voce frumoasa si completa, care sa ne apropie de ceea ce ne este propriu si intim,
+                    • a spori increderea in sine si implicit in puterea de a depasi anumite temeri,
+                    • a invata sa ne tratam cat mai bine starile de stres cu care suntem confruntati zi de zi.
+                </p>
+                <hr>
+                <h3>Test</h3>
+                <p>Lorem ipsum...</p>
+            </div>
+            <div class="col-sm-2 sidenav">
+                <a asp-controller="Feedback" asp-action="Index">Feedback</a>
+            </div>
+            <div>
+                @Model.TeacherId.Equals(4);
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="container-fluid text-center">
+        <p>Footer Text</p>
+    </footer>
+
+
+
+
+</body>
+</html>

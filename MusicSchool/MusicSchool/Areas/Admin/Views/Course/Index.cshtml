@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MusicSchool.Areas.Admin.Models.Courses>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link type="text/css" rel="stylesheet" href="~/css/Course.css" />
+
+</head>
+<body>
+    <h1>Courses</h1>
+
+    <table class="table-striped">
+
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">CourseName</th>
+        </tr>
+
+        <tbody>
+            @foreach (var course in Model)
+            {
+                <tr>
+                    <td scope="row">@course.TeacherId</td>
+                    <td>@course.CourseName</td>
+                    <td>@course.Teacher.FirstName</td>
+                    
+                    
+                    
+                    
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = course.TeacherId }) |
+                        @Html.ActionLink("Details", "Details", new { id = course.TeacherId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = course.TeacherId })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-controller="Teacher">Go to Teachers</a>
+    <a asp-action="Details">Go to Details</a>
+    <a asp-action="Create">Create a new course</a>
+</body>
+</html>

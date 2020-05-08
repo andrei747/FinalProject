@@ -1,0 +1,50 @@
+﻿@model MusicSchool.Areas.Admin.Models.Courses
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "IndexGuitar";
+}
+
+<h1>IndexGuitar</h1>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link type="text/css" rel="stylesheet" href="~/css/Teachers.css" />
+</head>
+<body>
+    <div class="container-fluid text-center">
+        <div class="row content">
+            <div class="col-sm-2 sidenav">
+
+            </div>
+            <div class="col-sm-8 text-left">
+                <h1>Cursuri de chitara - Lectii de chitara</h1>
+                <p>
+                    Puteti incepe Lectii de chitara la MusicSchool in orice moment al anului, in urmatoarele conditii:
+
+                    sa ai varsta minima de 7 ani
+                    sa manevrezi confortabil instrumentul
+                    sa ai entuziasmul necesar pentru a incepe studiul
+                </p>
+                <hr>
+                <h3>Test</h3>
+                <p>Lorem ipsum...</p>
+            </div>
+            <div class="col-sm-2 sidenav">
+                <a asp-controller="Feedback" asp-action="Index">Feedback</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container-fluid text-center">
+        <p>Footer Text</p>
+    </footer>
+
+
+
+
+</body>
+</html>

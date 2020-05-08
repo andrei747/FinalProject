@@ -1,0 +1,44 @@
+﻿@model MusicSchool.Areas.Admin.Models.Courses
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link type="text/css" rel="stylesheet" href="~/css/Teachers.css" />
+</head>
+<body>
+
+
+    <h1>DetailsOf Courses</h1>
+
+
+    
+    <div class="images">
+
+
+        
+    </div>
+
+    <div>
+        <h1>@Model.CourseName</h1>
+        <h5>Description</h5>
+
+    </div>
+
+
+    <a asp-action="Index">Go to index</a>
+
+
+</body>
+
+
+
+</html>

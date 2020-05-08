@@ -1,0 +1,36 @@
+﻿
+body {
+
+    
+    
+}
+table{
+    border-collapse: collapse;
+    width: 40%;
+}
+th, td{
+    text-align: left;
+    padding: 8px;
+    
+
+}
+th{
+    background-color: darkcyan;
+    color: aquamarine;
+}
+.table-striped{
+
+    background-color:burlywood;
+    border-bottom: solid 2px;   
+    color: darkslategrey;
+   
+}
+.images{
+
+    width:800px;
+    height: 800px;
+    padding: 200px;
+
+        
+
+}

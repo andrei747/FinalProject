@@ -1,0 +1,33 @@
+﻿@model MusicSchool.Areas.Admin.Models.Courses
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+    <link type="text/css" rel="stylesheet" href="~/css/cupcakes-styles.css" />
+</head>
+<body>
+    <div class="container">
+        <h3 class="into">Are you sure you want to delete this?</h3>
+
+        <p class="display-label">
+            @Html.DisplayNameFor(model => model.CourseName)
+        </p>
+        <br />
+
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="TeacherId" />
+            <input type="submit" value="Delete" /> |
+            <a asp-action="Index">Back to List</a>
+        </form>
+    </div>
+</body>
+</html>
