@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Proiecte\\MusicSchool\\MusicSchool\\MusicSchool.csproj": {}
+    "D:\\Project\\FinalProject\\MusicSchool\\MusicSchool\\MusicSchool.csproj": {}
   },
   "projects": {
-    "D:\\Proiecte\\MusicSchool\\MusicSchool\\MusicSchool.csproj": {
+    "D:\\Project\\FinalProject\\MusicSchool\\MusicSchool\\MusicSchool.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Proiecte\\MusicSchool\\MusicSchool\\MusicSchool.csproj",
+        "projectUniqueName": "D:\\Project\\FinalProject\\MusicSchool\\MusicSchool\\MusicSchool.csproj",
         "projectName": "MusicSchool",
-        "projectPath": "D:\\Proiecte\\MusicSchool\\MusicSchool\\MusicSchool.csproj",
+        "projectPath": "D:\\Project\\FinalProject\\MusicSchool\\MusicSchool\\MusicSchool.csproj",
         "packagesPath": "C:\\Users\\Andrei\\.nuget\\packages\\",
-        "outputPath": "D:\\Proiecte\\MusicSchool\\MusicSchool\\obj\\",
+        "outputPath": "D:\\Project\\FinalProject\\MusicSchool\\MusicSchool\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Andrei\\AppData\\Roaming\\NuGet\\NuGet.Config",

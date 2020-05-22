@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using MusicSchool.Areas.Admin.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MusicSchool.Repositories;
+using MusicSchool.Areas.Admin.ViewModels;
+using MusicSchool.Areas.Admin.Models.DataDbContext;
+using Microsoft.EntityFrameworkCore;
 
 namespace MusicSchool.Areas.Admin.Controllers
 {
@@ -23,11 +26,51 @@ namespace MusicSchool.Areas.Admin.Controllers
            
 
         }
+        private MusicSchoolContext db = new MusicSchoolContext();
+
+        public ActionResult CreateCourses()
+        {
+
+            return View();
+
+        }
+
+        public ActionResult CreateCourses(CourseViewModels model)
+        {
+            if (ModelState.IsValid)
+            {
+                Courses courses = new Courses();
+                courses.CourseName = model.CourseName;
+
+                db.Courses.Add(courses);
+                db.SaveChanges();
+
+                Teachers teachers = new Teachers();
+                teachers.FirstName = model.FirstName;
+                teachers.LastName = model.LastName;
+                teachers.ShortDescription = teachers.ShortDescription;
+                teachers.ImageUrl = teachers.ImageUrl;
+
+                teachers.TeacherId = courses.CourseId;
+
+                db.Teachers.Add(teachers);
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
+
+            return View();
+
+        }
+
+
+
 
         // GET: Courses
         public ActionResult Index()//returnam prin actiunea Index toate cursurile 
         {
-             
+           
             
             return View(_coursesrepositories.AllCourses());//se apeleaza metoda din CoursesRepository si se transmit in View-ul aferent
         }
@@ -91,7 +134,7 @@ namespace MusicSchool.Areas.Admin.Controllers
             bool isUpdated = await TryUpdateModelAsync<Courses>(
                                      courseToUpdate,
                                      "",
-                                     c => c.TeacherId,
+                                     c => c.CourseId,
                                      c => c.CourseName);
                                      
             if (isUpdated == true)

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MusicSchool.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,9 @@ namespace MusicSchool.Areas.Admin.Models.DataDbContext
 {
     public class MusicSchoolContext : DbContext
     {
+        public MusicSchoolContext()
+        {
+        }
 
         public MusicSchoolContext(DbContextOptions<MusicSchoolContext> options) : base(options)
         {
@@ -19,6 +23,7 @@ namespace MusicSchool.Areas.Admin.Models.DataDbContext
 
         public DbSet<Courses> Courses { get; set; }
         public DbSet<Teachers> Teachers { get; set; }
+        public DbSet<Feedback> Feedbacks { get; set; } 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)//metoda pt a creea date in DbSet<TEntity>
         
@@ -30,30 +35,30 @@ namespace MusicSchool.Areas.Admin.Models.DataDbContext
 
                     new Courses
                     {
-                    
+                        CourseId = 1,
                         CourseName = "PianoCourses",
-                        TeacherId = 1
+                        
                        
                     },
                     new Courses
                     {
-                        
+                        CourseId = 2,
                         CourseName = "ViolinCourses",
-                        TeacherId = 2
+                       
                         
                     },
                     new Courses
                     {
-                        
+                        CourseId = 3,
                         CourseName = "GuitarCourses",
-                        TeacherId = 3
+                        
                         
                     },
                     new Courses
                     {
-                        
+                        CourseId = 4,
                         CourseName = "Canto",
-                        TeacherId = 4
+                        
                         
                     }
                     );
@@ -75,7 +80,7 @@ namespace MusicSchool.Areas.Admin.Models.DataDbContext
                },
                new Teachers
                {
-                   TeacherId = 2,
+                  TeacherId = 2,
                    FirstName = "Alexandru",
                    LastName = "Tomescu",
 

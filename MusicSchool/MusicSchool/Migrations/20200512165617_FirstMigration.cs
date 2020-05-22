@@ -2,10 +2,23 @@
 
 namespace MusicSchool.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class FirstMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Feedbacks",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CourseId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Feedbacks", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Teachers",
                 columns: table => new
@@ -14,7 +27,7 @@ namespace MusicSchool.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(maxLength: 20, nullable: true),
                     LastName = table.Column<string>(maxLength: 20, nullable: true),
-                    ShortDescription = table.Column<string>(maxLength: 350, nullable: false),
+                    ShortDescription = table.Column<string>(nullable: false),
                     ImageUrl = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -29,17 +42,28 @@ namespace MusicSchool.Migrations
                     CourseId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CourseName = table.Column<string>(nullable: false),
-                    TeacherId = table.Column<int>(nullable: false)
+                    Teachers = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Courses", x => x.CourseId);
                     table.ForeignKey(
-                        name: "FK_Courses_Teachers_TeacherId",
-                        column: x => x.TeacherId,
+                        name: "FK_Courses_Teachers_Teachers",
+                        column: x => x.Teachers,
                         principalTable: "Teachers",
                         principalColumn: "TeacherId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Courses",
+                columns: new[] { "CourseId", "CourseName", "Teachers" },
+                values: new object[,]
+                {
+                    { 1, "PianoCourses", null },
+                    { 2, "ViolinCourses", null },
+                    { 3, "GuitarCourses", null },
+                    { 4, "Canto", null }
                 });
 
             migrationBuilder.InsertData(
@@ -53,27 +77,21 @@ namespace MusicSchool.Migrations
                     { 4, "Irina", "~/images/rimes.jpg", "Rimes", "Irina Rimes este o cântăreață și compozitoare din Republica Moldova " }
                 });
 
-            migrationBuilder.InsertData(
-                table: "Courses",
-                columns: new[] { "CourseId", "CourseName", "TeacherId" },
-                values: new object[,]
-                {
-                    { 1, "PianoCourses", 1 },
-                    { 2, "ViolinCourses", 2 },
-                    { 3, "GuitarCourses", 3 },
-                    { 4, "Canto", 4 }
-                });
-
             migrationBuilder.CreateIndex(
-                name: "IX_Courses_TeacherId",
+                name: "IX_Courses_Teachers",
                 table: "Courses",
-                column: "TeacherId");
+                column: "Teachers",
+                unique: true,
+                filter: "[Teachers] IS NOT NULL");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Courses");
+
+            migrationBuilder.DropTable(
+                name: "Feedbacks");
 
             migrationBuilder.DropTable(
                 name: "Teachers");

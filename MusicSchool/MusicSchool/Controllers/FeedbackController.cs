@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MusicSchool.Models;
 using MusicSchool.Repositories;
 
 namespace MusicSchool.Controllers
@@ -19,11 +20,11 @@ namespace MusicSchool.Controllers
             _feedbackrepository = feedbackrepository; 
         }
         // GET: Feedback
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
 
 
-            return View();
+            return View(_feedbackrepository.GetAllCourses(id));
         }
 
         // GET: Feedback/Details/5
@@ -48,7 +49,7 @@ namespace MusicSchool.Controllers
         {
             if (ModelState.IsValid)
             {
-                _feedbackrepository.GetCourses(newfeedback);
+                _feedbackrepository.GetFeedbacks(newfeedback);
                 return RedirectToAction(nameof(Index));
 
             }

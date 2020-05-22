@@ -16,6 +16,11 @@
 <body>
     <h1>Courses</h1>
 
+
+    <p>
+        @Html.ActionLink("CreateNew", "CreateCourses")
+
+    </p>
     <table class="table-striped">
 
         <tr>
@@ -27,17 +32,17 @@
             @foreach (var course in Model)
             {
                 <tr>
-                    <td scope="row">@course.TeacherId</td>
+                    <td scope="row">@course.CourseId</td>
                     <td>@course.CourseName</td>
-                    <td>@course.Teacher.FirstName</td>
+                    
                     
                     
                     
                     
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = course.TeacherId }) |
-                        @Html.ActionLink("Details", "Details", new { id = course.TeacherId }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = course.TeacherId })
+                        @Html.ActionLink("Edit", "Edit", new { id = course.CourseId}) |
+                        @Html.ActionLink("Details", "Details", new { id = course.CourseId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = course.CourseId })
                     </td>
                 </tr>
             }
@@ -46,5 +51,6 @@
     <a asp-controller="Teacher">Go to Teachers</a>
     <a asp-action="Details">Go to Details</a>
     <a asp-action="Create">Create a new course</a>
+    <a asp-action="CreateCourses">Course+Teachers</a>
 </body>
 </html>

@@ -21,8 +21,8 @@ namespace MusicSchool.Repositories
 
         public IEnumerable<Courses> AllCourses()//metoda se afiseaza in controller-ul Courses
         {
-
-            return _musicSchoolContext.Courses.ToList();//se returneaza toate cursurile intr-o lista
+           
+            return _musicSchoolContext.Courses.Include(c => c.Teacher).ToList();//se returneaza toate cursurile intr-o lista
 
         }
 
@@ -33,9 +33,9 @@ namespace MusicSchool.Repositories
             _musicSchoolContext.SaveChanges();
         }
 
-        public void DeleteCourse(int TeacherId)
+        public void DeleteCourse(int CourseId)
         {
-            var course = _musicSchoolContext.Courses.SingleOrDefault(c => c.TeacherId == TeacherId);
+            var course = _musicSchoolContext.Courses.SingleOrDefault(c => c.CourseId == CourseId);
             _musicSchoolContext.Courses.Remove(course);
             _musicSchoolContext.SaveChanges();
         }
@@ -45,9 +45,9 @@ namespace MusicSchool.Repositories
             throw new NotImplementedException();
         }
 
-        public Courses GetCoursesById(int TeacherId)
+        public Courses GetCoursesById(int CourseId)
         {
-            return _musicSchoolContext.Courses.FirstOrDefault(c => c.TeacherId == TeacherId); 
+            return _musicSchoolContext.Courses.FirstOrDefault(c => c.CourseId == CourseId); 
         }
 
         public void SaveChanges()

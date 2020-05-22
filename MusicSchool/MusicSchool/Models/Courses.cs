@@ -20,6 +20,6 @@ namespace MusicSchool.Models
 
         public string Description { get; set; }
 
-
+        public virtual Feedback Feedback { get; set; }
     }
 }

@@ -1,0 +1,47 @@
+﻿@model MusicSchool.Areas.Admin.Models.Courses
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link type="text/css" rel="stylesheet" href="~/css/Teachers.css" />
+</head>
+<body>
+    <div class="questions">
+        <h4>Your feedback</h4>
+
+
+        <h6>What is your opinion of these course safjs fs </h6>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked> Bad
+            </label>
+            <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option2" autocomplete="off"> Good
+            </label>
+            <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option3" autocomplete="off"> VeryGood
+            </label>
+        </div>
+        <input type="submit" value="Save" />
+        <a asp-action="Index">Back to index</a>
+
+    </div>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

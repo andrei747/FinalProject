@@ -30,9 +30,6 @@ namespace MusicSchool.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TeacherId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("Teachers")
                         .HasColumnType("int");
 
@@ -48,26 +45,22 @@ namespace MusicSchool.Migrations
                         new
                         {
                             CourseId = 1,
-                            CourseName = "PianoCourses",
-                            TeacherId = 0
+                            CourseName = "PianoCourses"
                         },
                         new
                         {
                             CourseId = 2,
-                            CourseName = "ViolinCourses",
-                            TeacherId = 0
+                            CourseName = "ViolinCourses"
                         },
                         new
                         {
                             CourseId = 3,
-                            CourseName = "GuitarCourses",
-                            TeacherId = 0
+                            CourseName = "GuitarCourses"
                         },
                         new
                         {
                             CourseId = 4,
-                            CourseName = "Canto",
-                            TeacherId = 0
+                            CourseName = "Canto"
                         });
                 });
 
@@ -130,6 +123,21 @@ namespace MusicSchool.Migrations
                             LastName = "Rimes",
                             ShortDescription = "Irina Rimes este o cântăreață și compozitoare din Republica Moldova "
                         });
+                });
+
+            modelBuilder.Entity("MusicSchool.Models.Feedback", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Feedbacks");
                 });
 
             modelBuilder.Entity("MusicSchool.Areas.Admin.Models.Courses", b =>

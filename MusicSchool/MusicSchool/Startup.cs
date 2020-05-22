@@ -32,6 +32,7 @@ namespace MusicSchool
                 options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));             
             services.AddTransient<ITeacherRepository, TeacherRepository>();
             services.AddTransient<ICoursesRepository, CoursesRepository>();
+            services.AddTransient<IFeedBackRepository, FeedbackRepository>();
             services.AddControllersWithViews();
         }
 

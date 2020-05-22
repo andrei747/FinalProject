@@ -12,7 +12,8 @@ namespace MusicSchool.Areas.Admin.Models
     public class Teachers 
     {
         [Key]
-        public int TeacherId { get; set; } 
+        
+        public int TeacherId { get; set; }  
         
         [StringLength(20, MinimumLength = 3)]
         public string FirstName { get; set; } 
@@ -24,10 +25,8 @@ namespace MusicSchool.Areas.Admin.Models
         public string ShortDescription { get; set; }
 
         public string ImageUrl { get; set; }   
-
-        
-
-        public Courses Courses { get; set; }
+       
+        public virtual Courses Courses { get; set; }
                       
     }
 }
